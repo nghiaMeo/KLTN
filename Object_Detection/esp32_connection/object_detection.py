@@ -4,7 +4,7 @@ from ultralytics import YOLO
 
 
 def detection_stream(frame_iamge):
-    model = YOLO("Object_Detection/best.pt", "v8")
+    model = YOLO("KLTN/Object_Detection/best.pt", "v8")
 
     # Generate random colors for class list
     detection_colors = []
