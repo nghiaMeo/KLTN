@@ -3,7 +3,8 @@ import numpy as np
 import os
 from ultralytics import YOLO
 
-model = YOLO("./root.pt", "v8")
+
+model = YOLO("Object_Detection/best.pt", "v8")
 
 # Generate random colors for class list
 detection_colors = []
@@ -14,7 +15,7 @@ for i in range(len(model.names)):
     detection_colors.append((b, g, r))
 
 # Define directory path containing images
-image_dir = "./Test"
+image_dir = "KLTN/images"
 # Get list of all image files in the directory
 image_files = os.listdir(image_dir)
 
@@ -58,7 +59,7 @@ for image_file in image_files:
                     (255, 255, 255),
                     2,
                 )
-                
+
                 found_cat = True
 
         # Display the resulting frame
@@ -66,7 +67,7 @@ for image_file in image_files:
         cv2.imshow("ObjectDetection", frame)
         cv2.waitKey(0)
         cv2.destroyAllWindows()
-        
+
         if found_cat:
             print(f"{image_file}: Found cat!")
         else:

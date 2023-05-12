@@ -56,13 +56,3 @@ def detection_img(image_path):
     else:
         print("Không có mèo trong ảnh.")
 
-    # Save image with bounding boxes and labels
-    cv2.imwrite("images/" + os.path.basename(image_path), frame)
-
-# Loop through all images in the directory
-image_dir = "Camera/"
-for file_name in os.listdir(image_dir):
-    if blob.name.lower().endswith((".jpg", ".png",".jpeg")):
-        image_path = os.path.join(image_dir, file_name)
-        detection_img(image_path)
-
