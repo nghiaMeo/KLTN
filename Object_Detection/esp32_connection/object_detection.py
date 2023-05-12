@@ -48,4 +48,8 @@ def detection_stream(frame_iamge):
                         (255, 255, 255),
                         2,
                     )
-        return frame_iamge
+                    results_s = [frame_iamge,"Yes"]
+        else:
+            results_s = [frame_iamge,"No"]
+        return results_s
+

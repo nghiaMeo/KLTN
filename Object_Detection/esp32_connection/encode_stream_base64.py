@@ -4,7 +4,7 @@ import base64
 
 def encode_frame_to_base64(frame):
     # Encode frame as JPEG image
-    success, buffer = cv2.imencode('.jpg', frame)
+    success, buffer = cv2.imencode('.jpg', frame[0])
     if not success:
         return ""
 

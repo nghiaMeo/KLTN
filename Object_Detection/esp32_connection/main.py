@@ -7,7 +7,7 @@ import encode_stream_base64 as encode_base64
 import firebase_connection as fb_conn
 
 # ESP32 URL
-URL = "http://192.168.10.99"
+URL = "http://172.16.8.99"
 AWB = True
 
 # Face recognition and opencv setup
@@ -48,8 +48,11 @@ if __name__ == '__main__':
     while True:
         if cap.isOpened():
             ret, frame = cap.read()
-            cv2.imshow("frame", ob.detection_stream(frame))
-            fb_conn.upload_string_base64_to_firebase(encode_base64.encode_frame_to_base64(ob.detection_stream(frame)))
+            detected_ob = ob.detection_stream(frame)
+            img_encoded = encode_base64.encode_frame_to_base64(detected_ob[0])
+            is_cat_show = detected_ob[1]
+            cv2.imshow("frame", ob.detection_stream(frame)[0])
+            fb_conn.upload_string_base64_to_firebase(img_encoded,is_cat_show)
             
             key = cv2.waitKey(1)
 
