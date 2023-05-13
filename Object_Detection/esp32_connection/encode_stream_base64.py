@@ -1,14 +1,11 @@
 import cv2
 import base64
+from PIL import Image
 
 
 def encode_frame_to_base64(frame):
-    # Encode frame as JPEG image
-    success, buffer = cv2.imencode('.jpg', frame[0])
-    if not success:
-        return ""
+    # Encode frame as JPEG i
+    jpg_img = cv2.imencode('.jpg', frame)
+    b64_string = base64.b64encode(jpg_img[1]).decode('utf-8')
+    return b64_string
 
-    # Encode JPEG image as base64 string
-    frame_base64 = base64.b64encode(buffer).decode('utf-8')
-
-    return frame_base64
