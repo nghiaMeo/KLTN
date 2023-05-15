@@ -58,8 +58,12 @@ if __name__ == '__main__':
             count_detected = detected_ob[2]
             time_set_eat = fb_conn.get_value_time_set_eat()
             time_after_set = fb_conn.get_time_after_eat()
-            is_cat_come_eat = ob.get_frame_cat_time_eat(time_set_eat,time_after_set,is_cat_show)
+
+            is_cat_come_eat = ob.get_frame_cat_time_eat(
+                time_set_eat, time_after_set, is_cat_show)
             # cv2.imshow("frame", ob.detection_stream(frame)[0])
-            fb_conn.upload_string_base64_to_firebase(img_encoded, is_cat_show, count_detected)
+            fb_conn.upload_string_base64_to_firebase(
+                img_encoded, is_cat_show, count_detected)
             fb_conn.upload_cat_come_to_eat(is_cat_come_eat)
+            fb_conn.get_value_cat_total_yes()
             time.sleep(2)

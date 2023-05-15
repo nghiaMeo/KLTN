@@ -29,6 +29,8 @@ def detection_stream(frame_iamge):
 #             if (frame_object_detected[1] == "Yes"):
 #                 return [current_time, "cat come to eat"]
 #     return [current_time, "no cat in frame"]
+
+
 def get_frame_cat_time_eat(time_set_eat, time_set_after_eat, frame_object_detected):
     now = datetime.now()
     current_time = now.strftime("%H:%M")
@@ -37,8 +39,8 @@ def get_frame_cat_time_eat(time_set_eat, time_set_after_eat, frame_object_detect
     for time in range(0, 3):
         if(current_time >= time_set[time] and current_time <= time_close[time]):
             if (frame_object_detected[1] == "Yes"):
-                return [current_time, "cat come to eat"]
-    return [current_time, "no cat in frame"]
+                return [current_time, "yes",]
+    return [current_time, "no cat"]
 
 
 

@@ -1,7 +1,7 @@
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import db
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, date
 import numpy as np
 
 # Fetch the service account key JSON file contents
@@ -48,6 +48,19 @@ def get_time_after_eat():
 def upload_cat_come_to_eat(is_cat_come_eat):
     value = is_cat_come_eat[1]
     path = is_cat_come_eat[0]
-    ref = db.reference('/cat_eat/' + path)
-    if(value == "cat come to eat"):
-        ref.set({"come": value})
+    date_time = date.today()
+    format_time = date_time.strftime("%d-%m-%Y")
+    ref = db.reference('/cat_eat/' + format_time)
+    if(value == "yes"):
+        ref.update({path: value})
+
+
+def get_value_cat_total_yes():
+    date_time = date.today()
+    format_time = date_time.strftime("%d-%m-%Y")
+    ref = db.reference('/cat_eat/' + format_time)
+    snap_shot = ref.get()
+    count_path = 0
+    if snap_shot is not None:
+        count_path = len(snap_shot)
+    ref.update({"count_eat_date": count_path})
