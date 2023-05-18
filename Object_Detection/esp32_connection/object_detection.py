@@ -15,20 +15,8 @@ def detection_stream(frame_iamge):
     plotted = detected_result.plot()
     if len(detected_result.boxes) > 0:
         count = count + 1
-        return [plotted, "Yes",count]
+        return [plotted, "Yes", count]
     return [plotted, "No", count]
-
-
-# def get_frame_cat_time_eat(time_set_eat, time_set_after_eat, frame_object_detected):
-#     now = datetime.now()
-#     current_time = now.strftime("%H:%M")
-#     time_set = time_set_eat
-#     time_close = time_set_after_eat
-#     for time in range(0, 3):
-#         if(current_time >= time_set[time] and current_time <= time_close[time]):
-#             if (frame_object_detected[1] == "Yes"):
-#                 return [current_time, "cat come to eat"]
-#     return [current_time, "no cat in frame"]
 
 
 def get_frame_cat_time_eat(time_set_eat, time_set_after_eat, frame_object_detected):
@@ -39,8 +27,5 @@ def get_frame_cat_time_eat(time_set_eat, time_set_after_eat, frame_object_detect
     for time in range(0, 3):
         if(current_time >= time_set[time] and current_time <= time_close[time]):
             if (frame_object_detected[1] == "Yes"):
-                return [current_time, "yes",]
-    return [current_time, "no cat"]
-
-
-
+                return [current_time, "yes", False]
+    return [current_time, "no cat", True]

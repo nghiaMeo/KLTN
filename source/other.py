@@ -4,7 +4,7 @@ import os
 from ultralytics import YOLO
 
 
-model = YOLO("Object_Detection/best.pt", "v8")
+model = YOLO("KLTN/Object_Detection/best.pt", "v8")
 
 # Generate random colors for class list
 detection_colors = []
@@ -15,7 +15,7 @@ for i in range(len(model.names)):
     detection_colors.append((b, g, r))
 
 # Define directory path containing images
-image_dir = "KLTN/images"
+image_dir = "KLTN/image"
 # Get list of all image files in the directory
 image_files = os.listdir(image_dir)
 
@@ -39,7 +39,7 @@ for image_file in image_files:
             conf = box.conf.numpy()[0]
             bb = box.xyxy.numpy()[0]
 
-            if model.names[int(clsID)] == "cat":
+            if model.names[int(clsID)] == "Cats":
                 cv2.rectangle(
                     frame,
                     (int(bb[0]), int(bb[1])),

@@ -62,5 +62,8 @@ def get_value_cat_total_yes():
     snap_shot = ref.get()
     count_path = 0
     if snap_shot is not None:
-        count_path = len(snap_shot)
+        count_path = len(snap_shot)-1
     ref.update({"count_eat_date": count_path})
+
+    
+# def 
