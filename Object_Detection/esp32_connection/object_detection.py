@@ -9,7 +9,7 @@ def detection_stream(frame_iamge):
     count = 0
     model = YOLO("KLTN/Object_Detection/best.pt", "v8")
     detect_params = model.predict(
-        source=[frame_iamge], conf=0.6)
+        source=[frame_iamge], conf=0.6, save = True)
     # Generate random colors for class list
     detected_result = detect_params[0]
     plotted = detected_result.plot()

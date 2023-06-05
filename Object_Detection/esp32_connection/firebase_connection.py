@@ -6,7 +6,7 @@ import numpy as np
 
 # Fetch the service account key JSON file contents
 cred = credentials.Certificate(
-    'KLTN\Object_Detection\esp32_connection\demo1-213d4-firebase-adminsdk-l0sim-120c9fbe5b.json')
+    'KLTN\Object_Detection\esp32_connection\serviceKey.json')
 # Initialize the app with a service account, granting admin privileges
 firebase_admin.initialize_app(cred, {
     'databaseURL': 'https://esp-32-connection-89b83-default-rtdb.firebaseio.com/'
@@ -64,6 +64,3 @@ def get_value_cat_total_yes():
     if snap_shot is not None:
         count_path = len(snap_shot)-1
     ref.update({"count_eat_date": count_path})
-
-    
-# def 

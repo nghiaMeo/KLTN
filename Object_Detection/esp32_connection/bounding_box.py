@@ -69,4 +69,3 @@ def count_red_lines_in_bbox_last(img_path, time_cat_eat, time_take_picture):
         return "not yet"
     return count_red
 
-# def 

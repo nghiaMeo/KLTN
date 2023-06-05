@@ -7,7 +7,7 @@ import encode_stream_base64 as encode_base64
 import firebase_connection as fb_conn
 import time
 # ESP32 URL
-URL = "http://192.168.1.11"
+URL = "http://192.168.10.116"
 AWB = True
 
 # Face recognition and opencv setup
